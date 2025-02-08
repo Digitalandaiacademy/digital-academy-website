@@ -52,7 +52,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Email</h3>
-                  <p className="text-gray-600">contact@digital-ai-academy.com</p>
+                  <p className="text-gray-600">contact@digitalandaiacademy.com</p>
                 </div>
               </div>
             </div>
