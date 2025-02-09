@@ -13,7 +13,9 @@ export default function VideoQuote() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    phone: '',
     companyName: '',
+    location: '',
     videoType: '',
     duration: '',
     description: '',
@@ -28,7 +30,9 @@ export default function VideoQuote() {
       setFormData({
         fullName: '',
         email: '',
+        phone: '',
         companyName: '',
+        location: '',
         videoType: '',
         duration: '',
         description: '',
@@ -83,14 +87,39 @@ export default function VideoQuote() {
                   />
                 </div>
               </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Téléphone
+                  </label>
+                  <Input 
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    placeholder="+237 6XX XXX XXX"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Nom de l'entreprise
+                  </label>
+                  <Input 
+                    value={formData.companyName}
+                    onChange={(e) => setFormData({...formData, companyName: e.target.value})}
+                    placeholder="Nom de votre entreprise"
+                    required
+                  />
+                </div>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom de l'entreprise
+                  Localisation de l'entreprise
                 </label>
                 <Input 
-                  value={formData.companyName}
-                  onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-                  placeholder="Nom de votre entreprise"
+                  value={formData.location}
+                  onChange={(e) => setFormData({...formData, location: e.target.value})}
+                  placeholder="Ex: Douala, Quartier"
                   required
                 />
               </div>

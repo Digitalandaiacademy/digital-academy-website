@@ -5,27 +5,27 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Globe } from 'lucide-react'
+import { Palette } from 'lucide-react'
 import { submitForm } from '@/lib/submit-form'
 import { toast } from 'sonner'
 
-export default function WebQuote() {
+export default function DesignQuote() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
     companyName: '',
     location: '',
-    projectType: '',
-    features: '',
-    budget: '',
-    timeline: ''
+    designType: '',
+    designPurpose: '',
+    brandColors: '',
+    existingBranding: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
-      await submitForm(formData, 'web')
+      await submitForm(formData, 'design')
       toast.success('Votre demande de devis a été envoyée avec succès !')
       setFormData({
         fullName: '',
@@ -33,10 +33,10 @@ export default function WebQuote() {
         phone: '',
         companyName: '',
         location: '',
-        projectType: '',
-        features: '',
-        budget: '',
-        timeline: ''
+        designType: '',
+        designPurpose: '',
+        brandColors: '',
+        existingBranding: ''
       })
     } catch (error) {
       toast.error('Une erreur est survenue lors de l\'envoi du formulaire.')
@@ -47,12 +47,12 @@ export default function WebQuote() {
     <div className="min-h-screen pt-20">
       <div className="bg-[#353c6b] text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <div className="w-16 h-16 bg-[#353c6b]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Globe className="w-8 h-8 text-[#353c6b]" />
+          <div className="w-16 h-16 bg-[#7abbed]/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Palette className="w-8 h-8 text-[#7abbed]" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Devis Développement Web</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Devis Création Visuelle</h1>
           <p className="text-xl max-w-2xl mx-auto">
-            Obtenez un devis personnalisé pour votre projet web
+            Obtenez un devis personnalisé pour vos projets de design graphique
           </p>
         </div>
       </div>
@@ -129,81 +129,65 @@ export default function WebQuote() {
               <h2 className="text-2xl font-bold text-[#353c6b]">Détails du projet</h2>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Type de projet
+                  Type de design
                 </label>
                 <Select
-                  value={formData.projectType}
-                  onValueChange={(value) => setFormData({...formData, projectType: value})}
+                  value={formData.designType}
+                  onValueChange={(value) => setFormData({...formData, designType: value})}
                   required
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Sélectionnez le type de projet" />
+                    <SelectValue placeholder="Sélectionnez le type de design" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="website">Site web vitrine</SelectItem>
-                    <SelectItem value="ecommerce">Site e-commerce</SelectItem>
-                    <SelectItem value="application">Application web</SelectItem>
-                    <SelectItem value="portal">Portail/Intranet</SelectItem>
+                    <SelectItem value="logo">Logo</SelectItem>
+                    <SelectItem value="flyer">Flyer</SelectItem>
+                    <SelectItem value="brochure">Brochure</SelectItem>
+                    <SelectItem value="carte">Carte de visite</SelectItem>
+                    <SelectItem value="affiche">Affiche</SelectItem>
+                    <SelectItem value="menu">Menu</SelectItem>
+                    <SelectItem value="packaging">Packaging</SelectItem>
+                    <SelectItem value="autre">Autre</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Fonctionnalités principales
+                  Objectif du design
                 </label>
                 <Textarea 
-                  value={formData.features}
-                  onChange={(e) => setFormData({...formData, features: e.target.value})}
-                  placeholder="Listez les principales fonctionnalités souhaitées pour votre projet"
+                  value={formData.designPurpose}
+                  onChange={(e) => setFormData({...formData, designPurpose: e.target.value})}
+                  placeholder="Décrivez l'objectif de votre projet de design (ex: lancement de marque, événement spécial...)"
                   className="min-h-[100px]"
                   required
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Budget estimé (FCFA)
+                  Couleurs souhaitées
                 </label>
-                <Select
-                  value={formData.budget}
-                  onValueChange={(value) => setFormData({...formData, budget: value})}
+                <Input 
+                  value={formData.brandColors}
+                  onChange={(e) => setFormData({...formData, brandColors: e.target.value})}
+                  placeholder="Ex: bleu, rouge, or..."
                   required
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Sélectionnez votre budget" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="500000">Moins de 500,000</SelectItem>
-                    <SelectItem value="1000000">500,000 - 1,000,000</SelectItem>
-                    <SelectItem value="2000000">1,000,000 - 2,000,000</SelectItem>
-                    <SelectItem value="5000000">2,000,000 - 5,000,000</SelectItem>
-                    <SelectItem value="more">Plus de 5,000,000</SelectItem>
-                  </SelectContent>
-                </Select>
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Délai souhaité
+                  Éléments de marque existants
                 </label>
-                <Select
-                  value={formData.timeline}
-                  onValueChange={(value) => setFormData({...formData, timeline: value})}
-                  required
-                >
-                  <SelectTrigger>
-                    <SelectValue placeholder="Sélectionnez le délai souhaité" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="1month">1 mois</SelectItem>
-                    <SelectItem value="2months">2 mois</SelectItem>
-                    <SelectItem value="3months">3 mois</SelectItem>
-                    <SelectItem value="6months">6 mois</SelectItem>
-                    <SelectItem value="flexible">Flexible</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Textarea 
+                  value={formData.existingBranding}
+                  onChange={(e) => setFormData({...formData, existingBranding: e.target.value})}
+                  placeholder="Décrivez les éléments de marque que vous avez déjà (logo, charte graphique...)"
+                  className="min-h-[100px]"
+                />
               </div>
             </div>
 
-            <Button type="submit" className="w-full bg-[#353c6b] hover:bg-[#7abbed] text-white">
+            <Button type="submit" className="w-full bg-[#7abbed] hover:bg-[#99325a] text-white">
               Demander le devis
             </Button>
           </form>

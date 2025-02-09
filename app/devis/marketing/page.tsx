@@ -13,7 +13,9 @@ export default function MarketingQuote() {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    phone: '', // Nouveau champ
     companyName: '',
+    location: '', // Nouveau champ
     campaignType: '',
     budget: '',
     objectives: ''
@@ -27,7 +29,9 @@ export default function MarketingQuote() {
       setFormData({
         fullName: '',
         email: '',
+        phone: '',
         companyName: '',
+        location: '',
         campaignType: '',
         budget: '',
         objectives: ''
@@ -39,6 +43,7 @@ export default function MarketingQuote() {
 
   return (
     <div className="min-h-screen pt-20">
+      {/* Hero Section reste inchangée */}
       <div className="bg-[#353c6b] text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <div className="w-16 h-16 bg-[#7abbed]/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -81,14 +86,39 @@ export default function MarketingQuote() {
                   />
                 </div>
               </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Téléphone
+                  </label>
+                  <Input 
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    placeholder="+237 6XX XXX XXX"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Nom de l'entreprise
+                  </label>
+                  <Input 
+                    value={formData.companyName}
+                    onChange={(e) => setFormData({...formData, companyName: e.target.value})}
+                    placeholder="Nom de votre entreprise"
+                    required
+                  />
+                </div>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom de l'entreprise
+                  Localisation de l'entreprise
                 </label>
                 <Input 
-                  value={formData.companyName}
-                  onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-                  placeholder="Nom de votre entreprise"
+                  value={formData.location}
+                  onChange={(e) => setFormData({...formData, location: e.target.value})}
+                  placeholder="Ex: Douala, Quartier"
                   required
                 />
               </div>

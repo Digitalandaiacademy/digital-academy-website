@@ -5,14 +5,15 @@ import { FormData } from '@/types/form';
 const TEMPLATE_IDS = {
   marketing: 'template_rczdmef',
   video: 'template_48zva6l',
-  web: 'template_48zva6l'
+  web: 'template_48zva6l',
+  design: 'template_48zva6l'
 };
 
-export async function submitForm(formData: FormData, formType: 'marketing' | 'video' | 'web') {
+export async function submitForm(formData: FormData, formType: 'marketing' | 'video' | 'web' | 'design') {
   try {
     // Préparer le template des données
     const templateParams = {
-      ...formData, // Mettre formData en premier
+      ...formData,
       form_type: formType,
       submission_date: new Date().toLocaleString(),
     };

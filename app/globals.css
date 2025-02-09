@@ -24,7 +24,8 @@ body {
 }
 
 .animate-fade-in {
-  animation: fade-in 1s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
+  opacity: 0;
 }
 
 @layer base {

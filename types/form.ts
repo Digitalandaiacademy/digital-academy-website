@@ -1,7 +1,9 @@
 export interface FormData {
   fullName: string;
   email: string;
+  phone: string; // Ajout du numéro de téléphone
   companyName: string;
+  location: string; // Ajout de la localisation
   // Marketing specific fields
   campaignType?: string;
   budget?: string;
@@ -15,4 +17,9 @@ export interface FormData {
   projectType?: string;
   features?: string;
   timeline?: string;
+  // Visual Design specific fields
+  designType?: string;
+  designPurpose?: string;
+  brandColors?: string;
+  existingBranding?: string;
 }

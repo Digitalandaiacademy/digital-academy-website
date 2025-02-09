@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { MonitorSmartphone, Video, Globe, ArrowRight } from 'lucide-react'
+import { MonitorSmartphone, Video, Globe, Palette, ArrowRight } from 'lucide-react'
 
 export default function Services() {
   return (
@@ -128,7 +128,7 @@ export default function Services() {
         </div>
 
         {/* Développement Web */}
-        <div id="web">
+        <div id="web" className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="w-16 h-16 bg-[#353c6b]/10 rounded-full flex items-center justify-center">
@@ -173,6 +173,60 @@ export default function Services() {
                 fill
                 className="object-cover"
               />
+            </div>
+          </div>
+        </div>
+
+        {/* Design Graphique */}
+        <div id="design">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop"
+                alt="Design Graphique"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="order-1 md:order-2 space-y-6">
+              <div className="w-16 h-16 bg-[#7abbed]/10 rounded-full flex items-center justify-center">
+                <Palette className="w-8 h-8 text-[#7abbed]" />
+              </div>
+              <h2 className="text-3xl font-bold text-[#353c6b]">Design Graphique</h2>
+              <p className="text-gray-600 text-lg">
+                Donnez vie à votre identité visuelle avec nos services de design graphique.
+                Nous créons des designs uniques et mémorables qui reflètent votre marque.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-5 h-5 text-[#7abbed]" />
+                  <span>Création de logo</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-5 h-5 text-[#7abbed]" />
+                  <span>Flyers et brochures</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-5 h-5 text-[#7abbed]" />
+                  <span>Cartes de visite</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ArrowRight className="w-5 h-5 text-[#7abbed]" />
+                  <span>Supports marketing</span>
+                </li>
+              </ul>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/devis/design">
+                  <Button className="bg-[#7abbed] hover:bg-[#99325a] text-white w-full sm:w-auto">
+                    Demander un devis
+                  </Button>
+                </Link>
+                <Link href="/portfolio/design">
+                  <Button variant="outline" className="border-[#7abbed] text-[#7abbed] hover:bg-[#7abbed] hover:text-white w-full sm:w-auto">
+                    Voir nos réalisations
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
