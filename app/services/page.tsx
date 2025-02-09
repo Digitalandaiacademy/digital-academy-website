@@ -53,11 +53,18 @@ export default function Services() {
                   <span>Stratégie de contenu digital</span>
                 </li>
               </ul>
-              <Link href="/devis/marketing">
-                <Button className="bg-[#7abbed] hover:bg-[#99325a] text-white">
-                  Demander un devis
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/devis/marketing">
+                  <Button className="bg-[#7abbed] hover:bg-[#99325a] text-white w-full sm:w-auto">
+                    Demander un devis
+                  </Button>
+                </Link>
+                <Link href="/portfolio/marketing">
+                  <Button variant="outline" className="border-[#7abbed] text-[#7abbed] hover:bg-[#7abbed] hover:text-white w-full sm:w-auto">
+                    Voir nos réalisations
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
@@ -104,11 +111,18 @@ export default function Services() {
                   <span>Motion design</span>
                 </li>
               </ul>
-              <Link href="/devis/video">
-                <Button className="bg-[#99325a] hover:bg-[#7abbed] text-white">
-                  Demander un devis
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/devis/video">
+                  <Button className="bg-[#99325a] hover:bg-[#7abbed] text-white w-full sm:w-auto">
+                    Demander un devis
+                  </Button>
+                </Link>
+                <Link href="/portfolio/video">
+                  <Button variant="outline" className="border-[#99325a] text-[#99325a] hover:bg-[#99325a] hover:text-white w-full sm:w-auto">
+                    Voir nos réalisations
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -139,11 +153,18 @@ export default function Services() {
                   <span>E-commerce</span>
                 </li>
               </ul>
-              <Link href="/devis/web">
-                <Button className="bg-[#353c6b] hover:bg-[#7abbed] text-white">
-                  Demander un devis
-                </Button>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/devis/web">
+                  <Button className="bg-[#353c6b] hover:bg-[#7abbed] text-white w-full sm:w-auto">
+                    Demander un devis
+                  </Button>
+                </Link>
+                <Link href="/portfolio/web">
+                  <Button variant="outline" className="border-[#353c6b] text-[#353c6b] hover:bg-[#353c6b] hover:text-white w-full sm:w-auto">
+                    Voir nos réalisations
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
