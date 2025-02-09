@@ -29,7 +29,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="relative h-[500px] rounded-lg overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2069&auto=format&fit=crop"
+              src="/images/pic1.jpg"
               alt="Obah Joseph Chanel"
               fill
               className="object-cover"
