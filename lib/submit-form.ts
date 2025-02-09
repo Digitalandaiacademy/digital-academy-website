@@ -12,11 +12,8 @@ export async function submitForm(formData: FormData, formType: 'marketing' | 'vi
   try {
     // Préparer le template des données
     const templateParams = {
+      ...formData, // Mettre formData en premier
       form_type: formType,
-      full_name: formData.fullName,
-      email: formData.email,
-      company_name: formData.companyName,
-      ...formData,
       submission_date: new Date().toLocaleString(),
     };
 
