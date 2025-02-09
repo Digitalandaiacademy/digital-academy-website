@@ -1,33 +1,43 @@
+import emailjs from '@emailjs/browser';
 import { FormData } from '@/types/form';
 
+// Configuration des IDs de template selon le type de formulaire
+const TEMPLATE_IDS = {
+  marketing: 'template_rczdmef',
+  video: 'template_48zva6l',
+  web: 'template_48zva6l'
+};
+
 export async function submitForm(formData: FormData, formType: 'marketing' | 'video' | 'web') {
-  // L'URL de votre Google Apps Script Web App
-  const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
-  
-  if (!SCRIPT_URL) {
-    throw new Error('Google Script URL not configured');
-  }
-
   try {
-    const response = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors', // Ajout du mode no-cors pour éviter les erreurs CORS
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        formType,
-        ...formData,
-        timestamp: new Date().toISOString(),
-      }),
-    });
+    // Préparer le template des données
+    const templateParams = {
+      form_type: formType,
+      full_name: formData.fullName,
+      email: formData.email,
+      company_name: formData.companyName,
+      ...formData,
+      submission_date: new Date().toLocaleString(),
+    };
 
-    // Avec mode: 'no-cors', la réponse sera toujours de type 'opaque'
-    // Nous ne pouvons pas vérifier le statut ou lire le contenu
-    // Nous supposons donc que la requête a réussi si elle n'a pas généré d'erreur
-    return { success: true };
+    // Sélectionner le bon template ID selon le type de formulaire
+    const templateId = TEMPLATE_IDS[formType];
+
+    // Envoyer l'email
+    const response = await emailjs.send(
+      'service_9hh0axb',
+      templateId,
+      templateParams,
+      'BcMsuRmtaR-65sZpO'
+    );
+
+    if (response.status === 200) {
+      return { success: true };
+    } else {
+      throw new Error('Échec de l\'envoi du formulaire');
+    }
   } catch (error) {
-    console.error('Error submitting form:', error);
+    console.error('Erreur lors de l\'envoi du formulaire:', error);
     throw error;
   }
 }
