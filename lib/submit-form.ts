@@ -6,7 +6,7 @@ const TEMPLATE_IDS = {
   marketing: 'template_rczdmef',
   video: 'template_48zva6l',
   web: 'template_48zva6l',
-  design: 'template_48zva6l'
+  design: 'template_rczdmef'
 };
 
 export async function submitForm(formData: FormData, formType: 'marketing' | 'video' | 'web' | 'design') {
