@@ -6,7 +6,8 @@ import {
   Video, 
   Globe,
   ChevronRight,
-  ArrowRight
+  ArrowRight,
+  Palette
 } from 'lucide-react'
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop"
             alt="Digital Background"
             fill
             className="object-cover"
@@ -48,7 +49,7 @@ export default function Home() {
             Nos Services
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-[#7abbed]/10 rounded-full flex items-center justify-center mb-6">
                 <MonitorSmartphone className="w-8 h-8 text-[#7abbed]" />
@@ -84,6 +85,19 @@ export default function Home() {
                 Sites web modernes et applications sur mesure pour votre entreprise.
               </p>
               <Link href="/services#web" className="text-[#7abbed] hover:text-[#99325a] flex items-center">
+                En savoir plus <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-[#7abbed]/10 rounded-full flex items-center justify-center mb-6">
+                <Palette className="w-8 h-8 text-[#7abbed]" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4">Design Graphique</h3>
+              <p className="text-gray-600 mb-6">
+                Créations visuelles uniques pour donner vie à votre identité de marque.
+              </p>
+              <Link href="/services#design" className="text-[#7abbed] hover:text-[#99325a] flex items-center">
                 En savoir plus <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
